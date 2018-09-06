@@ -1,0 +1,13 @@
+name: bd_notifier
+version: 0.1.0
+
+authors:
+  - Georg Gadinger <nilsding@nilsding.org>
+
+targets:
+  bd_notifier:
+    main: src/bd_notifier.cr
+
+crystal: 0.26.1
+
+license: MIT

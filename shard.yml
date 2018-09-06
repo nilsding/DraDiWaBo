@@ -6,7 +6,11 @@ authors:
 
 targets:
   bd_notifier:
-    main: src/bd_notifier.cr
+    main: src/main.cr
+
+dependencies:
+  telegram_bot:
+    github: hangyas/telegram_bot
 
 crystal: 0.26.1
 

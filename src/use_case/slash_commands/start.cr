@@ -3,6 +3,10 @@ require "./base"
 module UseCase
   module SlashCommands
     class Start < SlashCommands::Base
+      def self.command_name
+        "start"
+      end
+
       def call(bot, msg, params)
         bot.reply msg, <<-EOF
 Welcome to the Dragon Dick Watchbot!

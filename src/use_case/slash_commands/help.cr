@@ -5,6 +5,10 @@ require "./base"
 module UseCase
   module SlashCommands
     class Help < SlashCommands::Base
+      def self.command_name
+        "help"
+      end
+
       def call(bot, msg, params)
         bot.reply msg, <<-EOF
 Right now, I only know about this one command here.  Sorry to disappoint.

@@ -2,24 +2,16 @@ require "telegram_bot"
 
 require "./application"
 require "./errors"
-require "./use_case/slash_commands/start"
-require "./use_case/slash_commands/help"
+require "./use_case/slash_commands"
 
 class Bot < TelegramBot::Bot
   include TelegramBot::CmdHandler
-
-  macro register_command(name)
-    cmd "{{ name }}" do |msg, params|
-      UseCase::SlashCommands::{{ name.name.capitalize }}.call(self, msg, params)
-    end
-  end
 
   def initialize
     @logger = Application.logger
     super("DragonDickWatchbot", ENV["TELEGRAM_API_TOKEN"])
 
-    register_command start
-    register_command help
+    register_commands
   end
 
   def start
@@ -28,5 +20,13 @@ class Bot < TelegramBot::Bot
 
     logger.info "Switching to polling mode"
     polling
+  end
+
+  private def register_commands
+    {{ UseCase::SlashCommands::Base.subclasses }}.each do |klass|
+      cmd klass.command_name do |msg, params|
+        klass.call(self, msg, params)
+      end
+    end
   end
 end

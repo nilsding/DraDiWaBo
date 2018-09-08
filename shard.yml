@@ -1,11 +1,11 @@
-name: bd_notifier
+name: DragonDickWatchbot
 version: 0.1.0
 
 authors:
   - Georg Gadinger <nilsding@nilsding.org>
 
 targets:
-  bd_notifier:
+  DragonDickWatchbot:
     main: src/main.cr
 
 dependencies:

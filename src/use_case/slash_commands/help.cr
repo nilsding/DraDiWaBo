@@ -9,10 +9,18 @@ module UseCase
         "help"
       end
 
+      def self.help_text
+        "Displays this list of commands, duh."
+      end
+
       def call(bot, msg, params)
-        bot.reply msg, <<-EOF
-Right now, I only know about this one command here.  Sorry to disappoint.
-EOF
+        bot.reply msg, "I know the following commands:\n\n#{formatted_commands}"
+      end
+
+      private def formatted_commands
+        {{ UseCase::SlashCommands::Base.subclasses }}.reject(&.help_text.empty?).map do |klass|
+          "  ➢ /#{klass.command_name} - #{klass.help_text}"
+        end.join("\n")
       end
     end
   end

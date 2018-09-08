@@ -1,9 +1,10 @@
-require "./commands/start_bot"
 require "logger"
+
+require "./use_case/cli_commands/start_bot"
 
 class Application
   COMMANDS = {
-    "start" => Commands::StartBot
+    "start" => UseCase::CliCommands::StartBot
   }
 
   def self.run(argv)

@@ -5,6 +5,10 @@ require "../../errors"
 module UseCase
   module CliCommands
     class StartBot < CliCommands::Base
+      def self.command_name
+        "start"
+      end
+
       def self.description
         "Starts the telegram bot."
       end

@@ -14,6 +14,10 @@ module UseCase
         exit 2
       end
 
+      def self.command_name : String
+        raise NotImplementedError.new("Implement #{self.class}.command_name!")
+      end
+
       def self.description
         ""
       end

@@ -1,5 +1,6 @@
 require "./base"
 require "../../../bad_dragon/api/client"
+require "../../../repository/watch_targets"
 
 module UseCase
   module CliCommands
@@ -13,6 +14,15 @@ module UseCase
       end
 
       def call(_argv)
+        Repository::WatchTargets.add(2, "nova", "extralarge")
+        Repository::WatchTargets.add(2, "nova", "extralarge")
+        Repository::WatchTargets.add(3, "nova", "extralarge")
+        Repository::WatchTargets.remove(2, "nova", "extralarge")
+        Repository::WatchTargets.remove(2, "nova", "extralarge")
+        Repository::WatchTargets.remove(3, "nova", "extralarge")
+      end
+
+      def _call(_argv)
         client = BadDragon::API::Client.new
         toys = client.inventory_toys
         pp toys.map(&.type).uniq

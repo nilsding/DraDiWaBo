@@ -4,6 +4,14 @@ shards:
     github: mamantoha/crest
     version: 0.14.0
 
+  pool:
+    github: ysbaddaden/pool
+    version: 0.2.3
+
+  redis:
+    github: stefanwille/crystal-redis
+    version: 2.1.0
+
   telegram_bot:
     github: hangyas/telegram_bot
     commit: 722bab24876d13a661f513b09c4569916f7a81c1

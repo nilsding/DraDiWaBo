@@ -11,6 +11,9 @@ targets:
 dependencies:
   crest:
     github: mamantoha/crest
+  redis:
+    github: stefanwille/crystal-redis
+    version: ~> 2.1.0
   telegram_bot:
     github: hangyas/telegram_bot
 

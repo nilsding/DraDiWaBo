@@ -9,6 +9,8 @@ targets:
     main: src/main.cr
 
 dependencies:
+  crest:
+    github: mamantoha/crest
   telegram_bot:
     github: hangyas/telegram_bot
 

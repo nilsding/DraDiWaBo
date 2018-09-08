@@ -8,4 +8,6 @@ module Errors
   class GenericError < Base; end
 
   class ConfigurationError < Base; end
+
+  class HTTPError < Base; end
 end

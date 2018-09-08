@@ -1,4 +1,5 @@
 require "../../connection/redis"
+require "../../bad_dragon/size"
 
 require "json"
 
@@ -23,7 +24,7 @@ module Repository
       "#{KEY_BASE}:#{{{key}}}"
     end
 
-    def self.add(user_id : Int64, toy_sku, toy_size)
+    def self.add(user_id : Int32, toy_sku, toy_size : BadDragon::Size)
       Application.logger.info "adding watch #{toy_sku}/#{toy_size} for #{user_id}"
       key = redis_key(toy_sku)
       loop do
@@ -40,8 +41,8 @@ module Repository
       end
     end
 
-    def self.remove(user_id, toy_sku, toy_size)
-      Application.logger.info "removing watch #{toy_sku}:#{toy_size} for #{user_id}"
+    def self.remove(user_id, toy_sku, toy_size : BadDragon::Size)
+      Application.logger.info "removing watch #{toy_sku}/#{toy_size} for #{user_id}"
       key = redis_key(toy_sku)
 
       loop do
@@ -62,7 +63,7 @@ module Repository
 
       JSON.parse(
         redis.hget(redis_key(toy_sku), toy_size) || "[]"
-      ).as_a.map(&.as_i64)
+      ).as_a.map(&.as_i)
     end
 
     private def self.redis

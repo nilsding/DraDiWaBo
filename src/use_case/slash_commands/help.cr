@@ -19,7 +19,8 @@ module UseCase
 
       private def formatted_commands
         {{ UseCase::SlashCommands::Base.subclasses }}.reject(&.help_text.empty?).map do |klass|
-          "  ➢ /#{klass.command_name} - #{klass.help_text}"
+          help_arguments = klass.help_arguments.empty? ? "" : " #{klass.help_arguments}"
+          "  ➢ /#{klass.command_name}#{help_arguments} - #{klass.help_text}"
         end.join("\n")
       end
     end

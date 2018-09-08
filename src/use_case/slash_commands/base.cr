@@ -9,6 +9,10 @@ module UseCase
         raise NotImplementedError.new("Implement #{self.class}.command_name!")
       end
 
+      def self.help_arguments
+        ""
+      end
+
       def self.help_text
         ""
       end

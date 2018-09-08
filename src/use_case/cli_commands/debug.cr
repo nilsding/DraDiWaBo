@@ -14,12 +14,12 @@ module UseCase
       end
 
       def call(_argv)
-        Repository::WatchTargets.add(2, "nova", "extralarge")
-        Repository::WatchTargets.add(2, "nova", "extralarge")
-        Repository::WatchTargets.add(3, "nova", "extralarge")
-        Repository::WatchTargets.remove(2, "nova", "extralarge")
-        Repository::WatchTargets.remove(2, "nova", "extralarge")
-        Repository::WatchTargets.remove(3, "nova", "extralarge")
+        Repository::WatchTargets.add(2, "nova", BadDragon::Size::Extralarge)
+        Repository::WatchTargets.add(2, "nova", BadDragon::Size::Extralarge)
+        Repository::WatchTargets.add(3, "nova", BadDragon::Size::Extralarge)
+        Repository::WatchTargets.remove(2, "nova", BadDragon::Size::Extralarge)
+        Repository::WatchTargets.remove(2, "nova", BadDragon::Size::Extralarge)
+        Repository::WatchTargets.remove(3, "nova", BadDragon::Size::Extralarge)
       end
 
       def _call(_argv)

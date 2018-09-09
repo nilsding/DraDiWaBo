@@ -4,6 +4,10 @@ shards:
     github: mamantoha/crest
     version: 0.14.0
 
+  minitest:
+    github: ysbaddaden/minitest.cr
+    version: 0.4.0
+
   pool:
     github: ysbaddaden/pool
     version: 0.2.3

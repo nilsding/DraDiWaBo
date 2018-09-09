@@ -1,6 +1,8 @@
 require "redis"
 require "redis/pooled_client"
 
+require "../application"
+
 module Connection
   class Redis
     def self.connection

@@ -17,6 +17,10 @@ dependencies:
   telegram_bot:
     github: hangyas/telegram_bot
 
+development_dependencies:
+  minitest:
+    github: ysbaddaden/minitest.cr
+
 crystal: 0.26.1
 
 license: MIT

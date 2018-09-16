@@ -13,7 +13,7 @@ module Repository
   # - Redis key prefix: `ddw:wt:`
   # - A redis key for the toy `rex` would be e.g. `ddw:wt:rex`
   # - The keys of that hash are the toy sizes, e.g. `extralarge`
-  # - The value is a JSON array containing the Telegram user IDs
+  # - The value is a JSON array containing the Telegram chat IDs
   #
   # This way, we can simply iterate over all toys, and get the watchers for a
   # given toy/size combination.
@@ -24,7 +24,7 @@ module Repository
       "#{KEY_BASE}:#{{{key}}}"
     end
 
-    def self.add(user_id : Int32, toy_sku, toy_size : BadDragon::Size)
+    def self.add(user_id : Int64, toy_sku, toy_size : BadDragon::Size)
       Application.logger.info "adding watch #{toy_sku}/#{toy_size} for #{user_id}"
       key = redis_key(toy_sku)
       loop do
@@ -63,7 +63,7 @@ module Repository
 
       JSON.parse(
         redis.hget(redis_key(toy_sku), toy_size) || "[]"
-      ).as_a.map(&.as_i)
+      ).as_a.map(&.as_i64)
     end
 
     private def self.redis

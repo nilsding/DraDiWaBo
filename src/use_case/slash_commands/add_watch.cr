@@ -27,7 +27,7 @@ module UseCase
         sku = params.shift
         size = BadDragon::Size.parse(params.shift)
 
-        Repository::WatchTargets.add(msg.from.not_nil!.id, sku, size)
+        Repository::WatchTargets.add(msg.chat.id, sku, size)
         bot.reply msg, "I will notify you if there is a #{sku} in #{size} in the inventory."
       end
 

@@ -1,0 +1,15 @@
+---
+- name: "Add crystal repo"
+  yum_repository:
+    name: "crystal"
+    description: "Crystal language RPM repo"
+    baseurl: "https://dist.crystal-lang.org/rpm/"
+    state: present
+    gpgkey: https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
+  become: yes
+
+- name: "Install crystal"
+  package:
+    name: "crystal"
+    state: latest
+  become: yes

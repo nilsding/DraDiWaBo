@@ -1,0 +1,19 @@
+---
+- name: "Install epel-release"
+  package:
+    name: epel-release
+    state: installed
+  become: yes
+
+- name: "Install redis"
+  package:
+    name: redis
+    state: installed
+  become: yes
+
+- name: "Enable redis service"
+  service:
+    name: redis
+    enabled: yes
+    state: started
+  become: yes

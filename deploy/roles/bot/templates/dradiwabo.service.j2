@@ -1,0 +1,13 @@
+[Unit]
+Description=DragonDickWatchBot
+Requires=network.target
+After=syslog.target network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/dradiwabo
+ExecStart=/home/dradiwabo/dradiwabo/bin/DragonDickWatchbot start
+User=dradiwabo
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,55 @@
+---
+- name: "Install build-time dependencies"
+  package:
+    name: "{{ item }}"
+    state: installed
+  become: yes
+  with_items:
+    - openssl-devel
+
+- name: "Create dradiwabo user"
+  user:
+    name: "dradiwabo"
+    comment: "DraDiWaBo user"
+    create_home: yes
+  become: yes
+
+- block:
+    - name: "Check out repo"
+      git:
+        repo: "https://github.com/nilsding/DraDiWaBo.git"
+        dest: "/home/dradiwabo/dradiwabo"
+    - name: "Build the app"
+      shell: |
+        cd /home/dradiwabo/dradiwabo
+        shards build --release
+  become: yes
+  become_user: "dradiwabo"
+
+- block:
+    - name: "Create dradiwabo environment file"
+      template:
+        src: dradiwabo.env.j2
+        dest: /etc/sysconfig/dradiwabo
+        force: no
+    - name: "Create dradiwabo SystemD service"
+      template:
+        src: dradiwabo.service.j2
+        dest: /lib/systemd/system/dradiwabo.service
+        mode: "644"
+    - name: "Enable dradiwabo SystemD service"
+      systemd:
+        name: dradiwabo
+        daemon_reload: yes
+        state: restarted
+  become: yes
+
+- name: "Create cron entry for periodic check"
+  cron:
+    name: "dradiwabo_periodic_check"
+    minute: "*/5"
+    job: |
+      systemd-cat -t 'DragonDickWatchbot-notify' env $(grep -vE "^#" /etc/sysconfig/dradiwabo | xargs) /home/dradiwabo/dradiwabo/bin/DragonDickWatchbot notify
+    state: present
+  become: yes
+  become_user: "dradiwabo"

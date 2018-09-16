@@ -1,23 +1,66 @@
-# DragonDickWatchbot
+# DraDiWaBo
 
 This is a Telegram bot which periodically checks Bad Dragon's clearance
-section for nice deals.
+section for nice deals.  Or something like that.
 
 ## Installation
 
-TODO: Write installation instructions here
+### Dependencies
+
+* Crystal 0.26.1
+* Redis
+* `openssl-devel`
+
+### Compiling
+
+Since it's Crystal...
+
+```sh
+shards build
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Server side:
+
+```sh
+# set the telegram token in ENV
+export TELEGRAM_API_TOKEN=some.token
+
+# start the bot
+./bin/DragonDickWatchbot start
+
+# check the clearance section and notify interested users
+./bin/DragonDickWatchbot notify
+```
+
+Telegram side:
+
+```
+Start the bot:
+
+  /start
+
+Add a new toy to your watchlist:
+
+  /addWatch nova extralarge
+  
+Remove a toy from your watchlist:
+
+  /removeWatch nova small
+  
+Display a list of commands:
+
+  /help
+```
 
 ## Development
 
-TODO: Write development instructions here
+¯\\\_(ツ)\_/¯
 
 ## Contributing
 
-1. Fork it (<https://github.com/nilsding/DragonDickWatchbot/fork>)
+1. Fork it (<https://github.com/nilsding/DraDiWaBo/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

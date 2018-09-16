@@ -9,7 +9,7 @@ module BadDragon
       JSON.mapping(
         id: Int32,
         sku: String,
-        price: Int32,
+        price: Float32,
         flop_reason: String,
         type: String,
         size: BadDragon::Size,

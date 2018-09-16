@@ -1,3 +1,4 @@
+require "./cli_commands/notify"
 require "./cli_commands/start_bot"
 require "./cli_commands/help"
 

@@ -37,7 +37,7 @@ module UseCase
 
       private def usage
         usage = <<-EOF
-Usage: /addwatch SKU SIZE
+Usage: /#{self.class.command_name} #{self.class.help_arguments}
 
 Parameters:
 SKU - the SKU of the toy

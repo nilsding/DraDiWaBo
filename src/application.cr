@@ -1,6 +1,8 @@
 require "logger"
+require "sidekiq"
 
 require "./use_case/cli_commands"
+require "./worker/*"
 
 class Application
   def self.run(argv)
@@ -22,7 +24,18 @@ class Application
     command = @argv.shift.downcase.strip
     exit_with_usage unless UseCase::CliCommands::COMMANDS.has_key?(command)
 
+    setup_sidekiq_redis
+
     UseCase::CliCommands::COMMANDS[command].call(@argv)
+  end
+
+  private def setup_sidekiq_redis
+    ENV["REDIS_PROVIDER"] = "SIDEKIQ_REDIS_URL"
+    ENV["SIDEKIQ_REDIS_URL"] = "redis://localhost:6379/1"
+
+    Sidekiq::Client.default_context = Sidekiq::Client::Context.new(
+      Sidekiq::RedisConfig.new.new_pool, logger: self.class.logger
+    )
   end
 
   private def exit_with_usage(status = 1)

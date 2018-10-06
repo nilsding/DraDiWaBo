@@ -1,5 +1,5 @@
 [Unit]
-Description=DragonDickWatchBot
+Description=DragonDickWatchBot Sidekiq
 Requires=network.target redis.service
 After=syslog.target network.target redis.service
 
@@ -7,7 +7,7 @@ After=syslog.target network.target redis.service
 Type=simple
 EnvironmentFile=/etc/sysconfig/dradiwabo
 WorkingDirectory=/home/dradiwabo/dradiwabo
-ExecStart=/home/dradiwabo/dradiwabo/bin/DragonDickWatchbot start
+ExecStart=/home/dradiwabo/dradiwabo/bin/DragonDickWatchbot worker -e production -q send_notification,1 -q notify,1
 User=dradiwabo
 
 RestartSec=1

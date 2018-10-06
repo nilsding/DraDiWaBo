@@ -32,6 +32,12 @@ export TELEGRAM_API_TOKEN=some.token
 
 # check the clearance section and notify interested users
 ./bin/DragonDickWatchbot notify
+
+# start the workers which send the notifications to the users
+./bin/DragonDickWatchbot worker -q send_notification,1 -q notify,1
+
+# (optional) start a web UI to see the worker status
+WEB_SESSION_SECRET=heast ./bin/DragonDickWatchbot web
 ```
 
 Telegram side:

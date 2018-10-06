@@ -1,5 +1,7 @@
 require "./cli_commands/notify"
 require "./cli_commands/start_bot"
+require "./cli_commands/start_worker"
+require "./cli_commands/start_sidekiq_web"
 require "./cli_commands/help"
 
 {% unless flag?(:release) %}

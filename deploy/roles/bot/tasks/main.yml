@@ -36,10 +36,24 @@
       template:
         src: dradiwabo.service.j2
         dest: /lib/systemd/system/dradiwabo.service
+        force: yes
         mode: "644"
     - name: "Enable dradiwabo SystemD service"
       systemd:
         name: dradiwabo
+        daemon_reload: yes
+        enabled: yes
+        state: restarted
+
+    - name: "Create dradiwabo-sidekiq SystemD service"
+      template:
+        src: dradiwabo-sidekiq.service.j2
+        dest: /lib/systemd/system/dradiwabo-sidekiq.service
+        force: yes
+        mode: "644"
+    - name: "Enable dradiwabo-sidekiq SystemD service"
+      systemd:
+        name: dradiwabo-sidekiq
         daemon_reload: yes
         enabled: yes
         state: restarted
@@ -50,7 +64,7 @@
     name: "dradiwabo_periodic_check"
     minute: "*/5"
     job: |
-      systemd-cat -t 'DragonDickWatchbot-notify' env $(grep -vE "^#" /etc/sysconfig/dradiwabo | xargs) /home/dradiwabo/dradiwabo/bin/DragonDickWatchbot notify
+      systemd-cat -t 'DragonDickWatchbot-notify' env $(grep -vE "^#" /etc/sysconfig/dradiwabo | grep -vE "^WEB_SESSION_SECRET" | xargs) /home/dradiwabo/dradiwabo/bin/DragonDickWatchbot notify
     state: present
   become: yes
   become_user: "dradiwabo"

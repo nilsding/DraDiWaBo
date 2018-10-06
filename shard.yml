@@ -14,6 +14,9 @@ dependencies:
   redis:
     github: stefanwille/crystal-redis
     version: ~> 2.1.0
+  sidekiq:
+    github: mperham/sidekiq.cr
+    branch: master
   telegram_bot:
     github: hangyas/telegram_bot
 

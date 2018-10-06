@@ -5,6 +5,7 @@
     state: installed
   become: yes
   with_items:
+    - libyaml-devel
     - openssl-devel
 
 - name: "Create dradiwabo user"

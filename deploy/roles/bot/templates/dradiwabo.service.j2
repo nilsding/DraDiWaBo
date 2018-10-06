@@ -9,5 +9,8 @@ EnvironmentFile=/etc/sysconfig/dradiwabo
 ExecStart=/home/dradiwabo/dradiwabo/bin/DragonDickWatchbot start
 User=dradiwabo
 
+RestartSec=1
+Restart=on-failure
+
 [Install]
 WantedBy=multi-user.target

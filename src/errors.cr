@@ -10,4 +10,6 @@ module Errors
   class ConfigurationError < Base; end
 
   class HTTPError < Base; end
+
+  class LockUnavailableError < Base; end
 end

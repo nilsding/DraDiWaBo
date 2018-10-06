@@ -37,6 +37,7 @@ Configuration is handled via the following environment variables:
                          Default: 0.0.0.0
     WEBHOOK_PORT         The port for the webhook server to bind to.
                          Default: 8080
+    WEB_SESSION_SECRET   The session secret for the Sidekiq web interface.
 EOF
     end
   end

@@ -1,5 +1,7 @@
 # DraDiWaBo
 
+[![Build Status](https://semaphoreci.com/api/v1/nilsding/dradiwabo/branches/master/badge.svg)](https://semaphoreci.com/nilsding/dradiwabo)
+
 This is a Telegram bot which periodically checks Bad Dragon's clearance
 section for nice deals.  Or something like that.
 

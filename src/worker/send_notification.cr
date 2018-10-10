@@ -49,7 +49,13 @@ module Worker
     end
 
     private def build_text(toy)
-      "*browses the bad dragon clearance page and notices a #{toy.sku} in #{toy.size}* OwO what's this??\n\nget it while it's hot: #{build_clearance_url(toy)}"
+      [
+        "*browses the bad dragon clearance page and notices a #{toy.sku} in #{toy.size}* OwO what's this??\n\nget it while it's hot: #{build_clearance_url(toy)}",
+      ].tap do |a|
+        a << "\n"
+        a << "\nPrice: #{toy.price} USD"
+        a << "\nFirmness: #{toy.firmness}" if toy.firmness
+      end.compact.join("")
     end
 
     private def build_clearance_url(toy)

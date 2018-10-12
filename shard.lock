@@ -6,7 +6,7 @@ shards:
 
   crest:
     github: mamantoha/crest
-    version: 0.14.0
+    version: 0.15.0
 
   exception_page:
     github: crystal-loot/exception_page
@@ -46,7 +46,7 @@ shards:
 
   sidekiq:
     github: mperham/sidekiq.cr
-    commit: 21a62da8db787597abd0ebea183112a52bdfd2ff
+    commit: e88061b56f2645e13092468b4d916bb3d79dc539
 
   telegram_bot:
     github: hangyas/telegram_bot

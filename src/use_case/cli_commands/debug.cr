@@ -13,7 +13,7 @@ module UseCase
         "Whatever I'm currently debugging/testing. (non-release builds only)"
       end
 
-      def call(_argv)
+      def _call(_argv)
         Repository::WatchTargets.add(2, "nova", BadDragon::Size::Extralarge)
         Repository::WatchTargets.add(2, "nova", BadDragon::Size::Extralarge)
         Repository::WatchTargets.add(3, "nova", BadDragon::Size::Extralarge)
@@ -22,12 +22,13 @@ module UseCase
         Repository::WatchTargets.remove(3, "nova", BadDragon::Size::Extralarge)
       end
 
-      def _call(_argv)
+      def call(_argv)
         client = BadDragon::API::Client.new
         toys = client.inventory_toys
         pp toys.map(&.type).uniq
         pp toys.map(&.size).uniq
         products = client.products
+        pp products.map(&.full_title)
         pp products.map(&.type).uniq
       rescue e
         puts e.cause

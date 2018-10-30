@@ -11,6 +11,10 @@ module BadDragon
         title: String,
         furry_title: {type: String?, key: "furryTitle"}
       )
+
+      def full_title
+        furry_title || title
+      end
     end
   end
 end

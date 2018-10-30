@@ -38,12 +38,7 @@ module Worker
       )
       unless toy.images.empty?
         toy.images.each do |image|
-          bot.send_photo(
-            chat_id: watcher,
-            photo: image.full_filename,
-            disable_notification: true,
-            reply_to_message_id: msg == nil ? nil : msg.not_nil!.message_id
-          )
+          send_photo(watcher, toy, bot, image, msg)
         end
       end
     end
@@ -60,6 +55,17 @@ module Worker
 
     private def build_clearance_url(toy)
       "https://bad-dragon.com/shop/clearance?sizes[]=#{toy.size.to_s.downcase}&skus[][]=#{toy.sku}"
+    end
+
+    private def send_photo(watcher, toy, bot, image, msg)
+      bot.send_photo(
+        chat_id: watcher,
+        photo: image.full_filename,
+        disable_notification: true,
+        reply_to_message_id: msg == nil ? nil : msg.not_nil!.message_id
+      )
+    rescue e : TelegramBot::APIException
+      Application.logger.warn "[notify] Caught a #{e.class} while sending #{watcher} an image for #{toy.sku}/#{toy.size} -- image was: #{image.inspect}\n#{e.inspect_with_backtrace}"
     end
   end
 end

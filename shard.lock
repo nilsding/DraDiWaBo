@@ -6,7 +6,7 @@ shards:
 
   crest:
     github: mamantoha/crest
-    version: 0.14.0
+    version: 0.17.0
 
   exception_page:
     github: crystal-loot/exception_page
@@ -14,7 +14,7 @@ shards:
 
   kemal:
     github: kemalcr/kemal
-    commit: b389022b35202319b59396f30b3cac87fd8d393a
+    commit: a5d8df73822a7421f3318682910d3fe3b6a33dcc
 
   kemal-csrf:
     github: kemalcr/kemal-csrf
@@ -22,7 +22,7 @@ shards:
 
   kemal-session:
     github: kemalcr/kemal-session
-    commit: bc720cca9c27e391b4b3fc32ae7cc23f4d3f3fdc
+    commit: a16f164d3dcfc6e720d566f9085285abdd5b7825
 
   kilt:
     github: jeromegn/kilt
@@ -30,7 +30,7 @@ shards:
 
   minitest:
     github: ysbaddaden/minitest.cr
-    version: 0.4.0
+    version: 0.4.2
 
   pool:
     github: ysbaddaden/pool
@@ -46,9 +46,9 @@ shards:
 
   sidekiq:
     github: mperham/sidekiq.cr
-    commit: 21a62da8db787597abd0ebea183112a52bdfd2ff
+    commit: 58c910fe9544234de9a47e6b443f151f940ce5f0
 
   telegram_bot:
     github: hangyas/telegram_bot
-    commit: 722bab24876d13a661f513b09c4569916f7a81c1
+    commit: 50a4976ed04ebe16315dd6b1d3e3c22cc442051a
 

@@ -46,7 +46,7 @@ shards:
 
   sidekiq:
     github: mperham/sidekiq.cr
-    commit: 58c910fe9544234de9a47e6b443f151f940ce5f0
+    commit: bbbbadd872989cc109c4fc74581b92d6c16f728e
 
   telegram_bot:
     github: hangyas/telegram_bot

@@ -17,15 +17,7 @@ module BadDragon
         cumtube: Int32,
         suction_cup: Int32,
         color: String,
-        color_type: String,
-        color1: String,
-        color2: String,
-        color3: String,
-        original_text: String,
-        original_toy_id: Int32,
-        original_order_id: Int32,
         created: {type: Time, converter: Time::Format.new("%FT%T")},
-        updated: {type: Time?, converter: Time::Format.new("%FT%T")},
         images: Array(Toy::Image)
       )
 

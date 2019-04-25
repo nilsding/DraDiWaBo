@@ -15,15 +15,16 @@ dependencies:
     github: stefanwille/crystal-redis
     version: ~> 2.1.0
   sidekiq:
-    github: mperham/sidekiq.cr
-    branch: master
+    github: nilsding/sidekiq.cr
+    branch: crystal-0.28.0
   telegram_bot:
     github: hangyas/telegram_bot
+    branch: master
 
 development_dependencies:
   minitest:
     github: ysbaddaden/minitest.cr
 
-crystal: 0.27.0
+crystal: 0.28.0
 
 license: MIT

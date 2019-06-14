@@ -1,5 +1,5 @@
-require "../../connection/redis"
-require "../../bad_dragon/entities/toy"
+require "../connection/redis"
+require "../bad_dragon/entities/toy"
 
 require "json"
 

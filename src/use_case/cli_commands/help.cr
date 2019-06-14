@@ -1,5 +1,5 @@
 require "./base"
-require "../../print_usage"
+require "../print_usage"
 
 module UseCase
   module CliCommands

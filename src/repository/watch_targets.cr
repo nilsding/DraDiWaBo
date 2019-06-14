@@ -1,5 +1,5 @@
-require "../../connection/redis"
-require "../../bad_dragon/size"
+require "../connection/redis"
+require "../bad_dragon/size"
 
 require "json"
 

@@ -1,7 +1,7 @@
 require "random"
 
-require "../../connection/redis"
-require "../../errors"
+require "../connection/redis"
+require "../errors"
 
 module Repository
   # The Lock repository manages distributed locking.

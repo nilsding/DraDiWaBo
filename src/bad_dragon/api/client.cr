@@ -1,7 +1,7 @@
 require "crest"
 
-require "../../../application"
-require "../../../errors"
+require "../../application"
+require "../../errors"
 require "../entities/product"
 require "../entities/toy"
 require "./paginated_response"

@@ -6,15 +6,15 @@ shards:
 
   crest:
     github: mamantoha/crest
-    version: 0.17.0
+    version: 0.20.0
 
   exception_page:
     github: crystal-loot/exception_page
-    version: 0.1.1
+    version: 0.1.2
 
   kemal:
     github: kemalcr/kemal
-    commit: a5d8df73822a7421f3318682910d3fe3b6a33dcc
+    commit: f3d02e60af2687580425f526ff8adfc579f73efc
 
   kemal-csrf:
     github: kemalcr/kemal-csrf
@@ -38,7 +38,7 @@ shards:
 
   radix:
     github: luislavena/radix
-    version: 0.3.8
+    version: 0.3.9
 
   redis:
     github: stefanwille/crystal-redis
@@ -46,9 +46,9 @@ shards:
 
   sidekiq:
     github: mperham/sidekiq.cr
-    commit: bbbbadd872989cc109c4fc74581b92d6c16f728e
+    commit: 04a23a3aede9fba9c3a81c9d1cd13f30aff148e9
 
   telegram_bot:
     github: hangyas/telegram_bot
-    commit: 50a4976ed04ebe16315dd6b1d3e3c22cc442051a
+    commit: c46f930d19f394c0e26b3ddc77e967916c12bb08
 

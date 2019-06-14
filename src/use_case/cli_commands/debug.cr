@@ -1,6 +1,6 @@
 require "./base"
-require "../../../bad_dragon/api/client"
-require "../../../repository/watch_targets"
+require "../../bad_dragon/api/client"
+require "../../repository/watch_targets"
 
 module UseCase
   module CliCommands
